@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Users, Target, Award, Lock, Zap, Globe, Heart } from 'lucide-react';
+import { Shield, Users, Target, Award, Lock, Zap, Globe, Heart, CreditCard } from 'lucide-react';
 import { ParticlesBackground } from '@/components/ParticlesBackground';
 
 const fadeUp = {
@@ -17,18 +17,18 @@ export default function AboutPage() {
     { icon: Globe, title: 'Accessibility', description: 'Making enterprise-grade security accessible to businesses of all sizes.' },
   ];
 
-  const team = [
-    { name: 'Sarah Chen', role: 'CEO & Founder', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop' },
-    { name: 'Marcus Johnson', role: 'CTO', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop' },
-    { name: 'Emily Rodriguez', role: 'Head of Security', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop' },
-    { name: 'David Kim', role: 'AI Lead', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop' },
-  ];
-
   const stats = [
     { value: '10+', label: 'Years Experience' },
     { value: '500+', label: 'Clients Protected' },
     { value: '50M+', label: 'Threats Blocked' },
     { value: '24/7', label: 'Support Available' },
+  ];
+
+  const paymentMethods = [
+    { name: 'Visa', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png' },
+    { name: 'Mastercard', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png' },
+    { name: 'American Express', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/200px-American_Express_logo_%282018%29.svg.png' },
+    { name: 'Stripe', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/200px-Stripe_Logo%2C_revised_2016.svg.png' },
   ];
 
   return (
@@ -92,22 +92,25 @@ export default function AboutPage() {
             <motion.div {...fadeUp}>
               <span className="font-mono text-indigo-600 uppercase tracking-widest text-sm">Our Story</span>
               <h2 className="font-syne text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">
-                Born From a Vision
+                Established in 2014
               </h2>
               <div className="space-y-6 text-slate-600 leading-relaxed">
                 <p>
-                  Guardian AI was founded in 2014 by a team of cybersecurity experts and AI researchers 
-                  who saw a growing gap in the security landscape. While large enterprises had access 
-                  to sophisticated protection systems, small and medium businesses were left vulnerable.
+                  Guardian AI was founded in 2014 with a clear vision: to bridge the gap between 
+                  enterprise-level cybersecurity and the businesses that need it most. We recognized 
+                  that while large corporations had access to sophisticated protection systems, 
+                  small and medium businesses were left vulnerable to growing cyber threats.
                 </p>
                 <p>
-                  Our founders believed that every business deserves world-class security. They set out 
-                  to build an AI-powered platform that could provide enterprise-level protection at a 
-                  fraction of the cost.
+                  By combining cutting-edge artificial intelligence with deep cybersecurity expertise, 
+                  we've built a platform that provides proactive, intelligent protection. Our AI-powered 
+                  systems continuously learn and adapt to new attack vectors, ensuring our clients 
+                  stay protected against evolving threats.
                 </p>
                 <p>
-                  Today, Guardian AI protects over 500 businesses worldwide, blocking millions of threats 
-                  daily while our AI systems continuously learn and adapt to new attack vectors.
+                  Today, Guardian AI proudly serves over 500 businesses worldwide, from startups to 
+                  established enterprises. Our commitment remains the same: delivering world-class 
+                  security solutions that are both powerful and accessible.
                 </p>
               </div>
             </motion.div>
@@ -122,7 +125,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-3xl blur-xl" />
               <img
                 src="https://images.pexels.com/photos/8439094/pexels-photo-8439094.jpeg"
-                alt="Team collaboration"
+                alt="AI Security Technology"
                 className="relative rounded-3xl shadow-2xl"
               />
             </motion.div>
@@ -161,42 +164,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 bg-slate-50" data-testid="team-section">
+      {/* Payment Methods Section */}
+      <section className="py-24 bg-slate-50" data-testid="payment-methods-section">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="font-mono text-indigo-600 uppercase tracking-widest text-sm">Our Team</span>
+            <span className="font-mono text-indigo-600 uppercase tracking-widest text-sm">Secure Payments</span>
             <h2 className="font-syne text-4xl md:text-5xl font-bold text-slate-900 mt-4">
-              Meet The Experts
+              Payment Methods
             </h2>
             <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
-              Our team brings together decades of experience in cybersecurity, AI, and enterprise software.
+              We accept all major payment methods. Your transactions are secured with industry-leading encryption.
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
+            {paymentMethods.map((method, i) => (
               <motion.div
-                key={member.name}
+                key={method.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group"
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-shadow flex items-center justify-center"
               >
-                <div className="relative overflow-hidden rounded-2xl mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="font-syne text-lg font-bold text-slate-900">{member.name}</h3>
-                <p className="text-indigo-600">{member.role}</p>
+                <img
+                  src={method.logo}
+                  alt={method.name}
+                  className="h-8 md:h-10 w-auto object-contain filter grayscale hover:grayscale-0 transition-all"
+                />
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm">
+              <Lock className="w-5 h-5 text-green-600" />
+              <span className="text-slate-600 font-medium">256-bit SSL Encryption</span>
+              <span className="text-slate-300">|</span>
+              <CreditCard className="w-5 h-5 text-indigo-600" />
+              <span className="text-slate-600 font-medium">PCI DSS Compliant</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -220,7 +233,7 @@ export default function AboutPage() {
             </p>
             <div className="mt-8 flex items-center justify-center gap-2">
               <Award className="w-5 h-5 text-indigo-400" />
-              <span className="text-slate-500">Award-winning Security Solutions</span>
+              <span className="text-slate-500">Award-winning Security Solutions Since 2014</span>
             </div>
           </motion.div>
         </div>

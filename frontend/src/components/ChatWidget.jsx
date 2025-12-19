@@ -108,7 +108,8 @@ export const ChatWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[500px] bg-slate-900 rounded-2xl shadow-2xl border border-white/10 flex flex-col overflow-hidden"
+            style={{ zIndex: 9998 }}
+            className="fixed bottom-24 right-24 w-[380px] max-w-[calc(100vw-120px)] h-[500px] bg-slate-900 rounded-2xl shadow-2xl border border-white/10 flex flex-col overflow-hidden"
             data-testid="chat-window"
           >
             {/* Header */}

@@ -123,12 +123,12 @@ export default function ContactPage() {
               {/* Map placeholder */}
               <div className="relative rounded-2xl overflow-hidden h-64 bg-slate-200">
                 <img
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&h=400&fit=crop"
-                  alt="Location"
+                  src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&h=400&fit=crop"
+                  alt="Crested Butte Colorado"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-6">
-                  <p className="text-white font-medium">San Francisco, California</p>
+                  <p className="text-white font-medium">Crested Butte, Colorado, USA</p>
                 </div>
               </div>
             </motion.div>

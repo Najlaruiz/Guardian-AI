@@ -179,7 +179,7 @@ export default function ServicePage() {
             
             {/* Pricing Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-28 space-y-6">
+              <div className="sticky top-24 space-y-6 z-10">
                 <h3 className="font-syne text-2xl font-bold text-slate-900 mb-4">Choose Your Plan</h3>
                 
                 {service.pricing?.map((plan, i) => (
@@ -190,7 +190,7 @@ export default function ServicePage() {
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <Card className="overflow-hidden border-2 border-slate-200 hover:border-indigo-300 transition-colors tracing-beam" data-testid={`pricing-card-${plan.id}`}>
+                    <Card className="overflow-hidden border-2 border-slate-200 hover:border-indigo-300 transition-colors" data-testid={`pricing-card-${plan.id}`}>
                       <CardHeader className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6">
                         <CardTitle className="font-syne text-xl">{plan.name}</CardTitle>
                         <div className="mt-2">

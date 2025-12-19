@@ -62,24 +62,41 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                data-testid={`nav-${link.label.toLowerCase()}`}
-                className={`relative font-medium transition-colors duration-200 ${
-                  isActive(link.href)
-                    ? 'text-white'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {link.label}
-                {isActive(link.href) && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-violet-500"
-                  />
-                )}
-              </Link>
+              link.isAnchor ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  data-testid={`nav-${link.label.toLowerCase()}`}
+                  onClick={(e) => {
+                    if (location.pathname === '/') {
+                      e.preventDefault();
+                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="relative font-medium transition-colors duration-200 text-slate-400 hover:text-white cursor-pointer"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  data-testid={`nav-${link.label.toLowerCase()}`}
+                  className={`relative font-medium transition-colors duration-200 ${
+                    isActive(link.href)
+                      ? 'text-white'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                  {isActive(link.href) && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-violet-500"
+                    />
+                  )}
+                </Link>
+              )
             ))}
           </div>
 

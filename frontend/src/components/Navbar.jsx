@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/services/data-device-protection', label: 'Services' },
+    { href: '/#services', label: 'Services', isAnchor: true },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];

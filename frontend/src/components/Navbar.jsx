@@ -131,15 +131,32 @@ export const Navbar = () => {
           >
             <div className="px-6 py-4 space-y-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`block py-2 font-medium ${
-                    isActive(link.href) ? 'text-white' : 'text-slate-400'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                link.isAnchor ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      if (location.pathname === '/') {
+                        e.preventDefault();
+                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="block py-2 font-medium text-slate-400"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`block py-2 font-medium ${
+                      isActive(link.href) ? 'text-white' : 'text-slate-400'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
               <Link to="/contact" className="block pt-2">
                 <Button className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white rounded-full">

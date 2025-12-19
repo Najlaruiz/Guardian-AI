@@ -1,0 +1,61 @@
+{
+  "summary": "Completed comprehensive testing of Guardian AI application. Backend APIs are fully functional (100% success rate). Frontend pages load correctly with good navigation. Found 2 critical UI interaction issues that need fixing.",
+  
+  "backend_issues": {
+    "critical_bugs": [],
+    "flaky_endpoints": []
+  },
+  
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "ServicePage Checkout Button",
+        "issue": "Stripe checkout button clicks but does not redirect to Stripe checkout page",
+        "selector": "[data-testid^='checkout-btn-']",
+        "fix_priority": "HIGH",
+        "details": "Button is clickable but the checkout flow is not triggering properly. Backend API works but frontend integration may have issues."
+      },
+      {
+        "component": "ChatWidget Toggle",
+        "issue": "Chat toggle button is intercepted by Emergent badge overlay, making it unclickable",
+        "selector": "[data-testid='chat-toggle']",
+        "fix_priority": "MEDIUM",
+        "details": "Emergent badge element is blocking click events on the chat widget toggle button"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Stripe Payment Integration",
+        "issue": "Frontend checkout button not properly integrated with Stripe redirect",
+        "affected_selectors": ["[data-testid^='checkout-btn-']"]
+      }
+    ]
+  },
+  
+  "passed_tests": [
+    "Backend API health check (12/12 endpoints working)",
+    "Homepage loads with hero section and services",
+    "Service page loads with pricing and features",
+    "Contact form submission and success message",
+    "Admin login with correct credentials",
+    "Admin dashboard loads with stats and data",
+    "Navigation between all pages",
+    "Services API returns 6 services correctly",
+    "Chat API backend functionality",
+    "Contact API backend functionality"
+  ],
+  
+  "test_report_links": ["/app/backend_test.py"],
+  
+  "success_percentage": {
+    "backend": "100%",
+    "frontend": "80%"
+  },
+  
+  "updated_files": ["/app/backend_test.py"],
+  
+  "action_item_for_main_agent": "Fix Stripe checkout button integration on service pages - button clicks but doesn't redirect to Stripe. Also fix chat widget accessibility by resolving Emergent badge overlay conflict.",
+  
+  "should_call_test_agent_after_fix": "true",
+  "should_main_agent_test_itself": "false"
+}

@@ -210,7 +210,7 @@ export default function ServicePage() {
                         <Button
                           onClick={() => handleCheckout(plan.id)}
                           disabled={checkoutLoading === plan.id}
-                          className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 text-white rounded-full py-6 font-semibold transition-all duration-300 hover:scale-105 active:scale-95"
+                          className="relative z-20 w-full bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 text-white rounded-full py-6 font-semibold transition-all duration-300 hover:scale-105 active:scale-95"
                           data-testid={`checkout-btn-${plan.id}`}
                         >
                           {checkoutLoading === plan.id ? (

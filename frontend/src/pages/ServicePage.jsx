@@ -52,11 +52,20 @@ export default function ServicePage() {
         origin_url: window.location.origin,
       });
       
+      console.log('Checkout response:', response.data);
+      
       if (response.data.checkout_url) {
-        window.location.href = response.data.checkout_url;
+        toast.success('Redirecting to payment...');
+        // Small delay to show the toast before redirect
+        setTimeout(() => {
+          window.location.href = response.data.checkout_url;
+        }, 500);
+      } else {
+        toast.error('No checkout URL received. Please try again.');
       }
     } catch (err) {
-      toast.error('Failed to initiate checkout. Please try again.');
+      console.error('Checkout error:', err);
+      toast.error(err.response?.data?.detail || 'Failed to initiate checkout. Please try again.');
     } finally {
       setCheckoutLoading(null);
     }

@@ -89,7 +89,8 @@ export const ChatWidget = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 ${
+        style={{ zIndex: 9999 }}
+        className={`fixed bottom-6 right-24 p-4 rounded-full shadow-lg transition-all duration-300 ${
           isOpen
             ? 'bg-slate-800 text-white'
             : 'bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-indigo-500/40'

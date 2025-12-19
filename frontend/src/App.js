@@ -15,12 +15,14 @@ import AdminDashboardPage from "@/pages/AdminDashboardPage";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ChatWidget } from "@/components/ChatWidget";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { AuthProvider } from "@/context/AuthContext";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1">

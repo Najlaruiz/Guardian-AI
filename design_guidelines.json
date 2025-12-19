@@ -1,0 +1,221 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Guardian AI",
+      "archetype": "The Sentinel",
+      "vibe": "Premium, Secure, Intelligent, Futuristic but Grounded",
+      "core_values": ["Unbreakable Security", "AI Precision", "Human Trust"]
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Syne, sans-serif",
+        "body": "Manrope, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "weights": {
+        "headings": "700 (Bold) or 800 (ExtraBold)",
+        "body": "400 (Regular) and 500 (Medium)"
+      },
+      "scale": {
+        "h1": "text-6xl md:text-8xl tracking-tighter leading-[0.9]",
+        "h2": "text-4xl md:text-6xl tracking-tight leading-none",
+        "h3": "text-2xl md:text-3xl tracking-tight",
+        "body": "text-base md:text-lg leading-relaxed",
+        "caption": "text-sm tracking-widest uppercase font-mono"
+      },
+      "instructions": "Load 'Syne' (weights 400, 700, 800) and 'Manrope' (weights 400, 500, 600) and 'JetBrains Mono' from Google Fonts."
+    },
+    "colors": {
+      "palette": {
+        "primary": {
+          "DEFAULT": "#6366f1",
+          "foreground": "#ffffff",
+          "glow": "0 0 20px rgba(99, 102, 241, 0.5)"
+        },
+        "secondary": {
+          "DEFAULT": "#06b6d4",
+          "foreground": "#ffffff"
+        },
+        "accent": {
+          "DEFAULT": "#8b5cf6",
+          "foreground": "#ffffff"
+        },
+        "background": {
+          "dark": "#020617",
+          "light": "#f8fafc",
+          "card_dark": "#0f172a",
+          "card_light": "#ffffff"
+        },
+        "text": {
+          "dark_bg": "#f8fafc",
+          "light_bg": "#0f172a",
+          "muted": "#94a3b8"
+        }
+      },
+      "gradients": {
+        "hero": "bg-gradient-to-br from-slate-950 via-[#050a1f] to-slate-950",
+        "text_gradient": "bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400",
+        "glass_surface": "bg-white/5 backdrop-blur-xl border border-white/10"
+      }
+    },
+    "layout": {
+      "spacing": {
+        "container_padding": "px-6 md:px-12 lg:px-24",
+        "section_gap": "py-24 md:py-32",
+        "element_gap": "gap-6 md:gap-12"
+      },
+      "grids": {
+        "bento_features": "grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]",
+        "dashboard": "grid grid-cols-1 md:grid-cols-4 gap-4"
+      },
+      "border_radius": {
+        "card": "rounded-2xl",
+        "button": "rounded-full",
+        "input": "rounded-lg"
+      }
+    },
+    "visual_enhancers": {
+      "textures": {
+        "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+      },
+      "effects": {
+        "glassmorphism": "backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl",
+        "tracing_beam": "relative group overflow-hidden before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-r before:from-transparent before:via-indigo-500 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 before:content-[''] before:rounded-2xl before:-z-10",
+        "glow_text": "drop-shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+      }
+    },
+    "motion": {
+      "library": "framer-motion",
+      "scroll": "lenis",
+      "animations": {
+        "fade_up": {
+          "initial": { "opacity": 0, "y": 40 },
+          "whileInView": { "opacity": 1, "y": 0 },
+          "viewport": { "once": true },
+          "transition": { "duration": 0.8, "ease": [0.22, 1, 0.36, 1] }
+        },
+        "stagger_children": {
+          "visible": { "transition": { "staggerChildren": 0.1 } }
+        },
+        "hover_lift": {
+          "whileHover": { "y": -5, "transition": { "duration": 0.2 } }
+        }
+      }
+    }
+  },
+  "pages": {
+    "homepage": {
+      "sections": [
+        {
+          "name": "Hero",
+          "theme": "Dark",
+          "elements": [
+            "Full-screen height (min-h-screen)",
+            "Background: Deep dark gradient + 'tsparticles' (network nodes)",
+            "Typography: Massive 'Syne' heading (left-aligned), Gradient text for 'AI Security'",
+            "CTA: 'Get Protected' (Primary, Neon Glow) + 'View Demo' (Glass, Outline)",
+            "Visual: Floating 3D Shield or Abstract Lock (Spline or Image)"
+          ]
+        },
+        {
+          "name": "Stats_Ticker",
+          "theme": "Dark",
+          "elements": [
+            "Full-width marquee",
+            "Content: '99.9% Uptime', '50M+ Threats Blocked', 'Zero-Trust Architecture'",
+            "Style: Mono font, opacity 70%"
+          ]
+        },
+        {
+          "name": "Services_Preview",
+          "theme": "Light",
+          "elements": [
+            "Bento Grid Layout",
+            "Cards: 'Data Protection', 'Cyber Consultation', 'AI Automation'",
+            "Style: Clean white cards, heavy drop shadows, hover:scale-105"
+          ]
+        },
+        {
+          "name": "About_Preview",
+          "theme": "Light",
+          "elements": [
+            "Asymmetrical Layout (Text Left, Image Right)",
+            "Image: Team photo with 'glitch' effect overlay on hover"
+          ]
+        }
+      ]
+    },
+    "services": {
+      "theme": "Hybrid (Dark Header, Light Body)",
+      "components": [
+        "Pricing Cards with 'Tracing Beam' effect",
+        "Comparison Table (Shadcn Table, customized with checkmarks)",
+        "Stripe Integration Buttons"
+      ]
+    },
+    "admin_dashboard": {
+      "theme": "Dark Mode Only",
+      "layout": "Sidebar Navigation + Top Header + Main Content Area",
+      "widgets": [
+        "Real-time Threat Map (Recharts Scatter or Custom SVG)",
+        "Service Status (Green/Red Indicators)",
+        "Chatbot Analytics (Bar Chart)",
+        "Recent Alerts (List View)"
+      ]
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwYWJzdHJhY3QlMjBuZXR3b3JrJTIwbm9kZXMlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8Ymx1ZXwxNzY2MTE1OTAyfDA&ixlib=rb-4.1.0&q=85",
+      "abstract_tech": "https://images.pexels.com/photos/31587202/pexels-photo-31587202.jpeg",
+      "team_meeting": "https://images.unsplash.com/photo-1758518727477-3885839edee7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZyUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3NjYxMTU5MDV8MA&ixlib=rb-4.1.0&q=85",
+      "ai_handshake": "https://images.pexels.com/photos/8439094/pexels-photo-8439094.jpeg",
+      "cyber_lock": "https://images.unsplash.com/photo-1698669993523-bcf101a925ef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwYWJzdHJhY3QlMjBuZXR3b3JrJTIwbm9kZXMlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8Ymx1ZXwxNzY2MTE1OTAyfDA&ixlib=rb-4.1.0&q=85"
+    },
+    "icons": "Lucide React (Shield, Lock, Cpu, Activity, Users, MessageSquare)"
+  },
+  "instructions_to_main_agent": {
+    "setup": [
+      "Install dependencies: framer-motion, lenis, tsparticles, @tsparticles/react, @tsparticles/slim, lucide-react, clsx, tailwind-merge",
+      "Configure Tailwind: Add 'Syne' and 'Manrope' to font family.",
+      "Add 'noise' texture to the global CSS as a utility class."
+    ],
+    "implementation_rules": [
+      "Use 'Syne' font for ALL headings (h1-h3).",
+      "Use 'Manrope' for body text.",
+      "Implement the 'Hybrid Theme': Dark Hero/Footer, Light Content Sections.",
+      "Use 'framer-motion' for all entrance animations (fade-up).",
+      "Ensure all buttons have a 'hover:scale-105' and 'active:scale-95' transition.",
+      "For the Admin Dashboard, force Dark Mode classes on the container.",
+      "Use 'sonner' for all toast notifications.",
+      "Add 'data-testid' to all interactive elements."
+    ],
+    "forbidden": [
+      "Do NOT use generic 'Inter' font for headings.",
+      "Do NOT use pure black (#000000) background. Use Slate-950 (#020617).",
+      "Do NOT center-align the Hero text. Left-align it for impact."
+    ]
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur)",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Create new components that match the style and conventions of existing components when needed",
+    "Examine existing components to understand the project's component patterns before creating new ones",
+    "Components MUST use named exports (export const ComponentName = ...)",
+    "Pages MUST use default exports (export default function PageName() {...})",
+    "Use sonner for toasts",
+    "Sonner component are located in /app/src/components/ui/sonner.tsx"
+  ]
+}

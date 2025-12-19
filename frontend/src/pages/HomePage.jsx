@@ -180,7 +180,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 lg:py-32 bg-slate-50" data-testid="services-section">
+      <section id="services" className="py-24 lg:py-32 bg-slate-50" data-testid="services-section">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="font-mono text-indigo-600 uppercase tracking-widest text-sm">Our Services</span>

@@ -51,8 +51,8 @@ export default function ContactPage() {
 
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'contact@guardianai.com', href: 'mailto:contact@guardianai.com' },
-    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, label: 'Address', value: '123 Security Ave, San Francisco, CA 94102', href: '#' },
+    { icon: Phone, label: 'Phone', value: '+1 (970) 555-0123', href: 'tel:+19705550123' },
+    { icon: MapPin, label: 'Address', value: 'Crested Butte, Colorado, USA', href: '#' },
   ];
 
   return (

@@ -644,6 +644,107 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event("startup")
+async def startup_event():
+    """Auto-seed services and admin on startup if database is empty"""
+    try:
+        # Check if services exist, if not, seed them
+        services_count = await db.services.count_documents({})
+        if services_count == 0:
+            logger.info("No services found, seeding default services...")
+            default_services = [
+                {
+                    "id": str(uuid.uuid4()),
+                    "title": "Data & Device Protection",
+                    "slug": "data-device-protection",
+                    "short_description": "Comprehensive security for all your devices and sensitive data with AI-powered threat detection.",
+                    "full_description": "Our Data & Device Protection service provides enterprise-grade security for individuals and businesses. Using advanced AI algorithms, we continuously monitor your devices and data for potential threats, automatically blocking malicious activities before they can cause harm. Our solution includes real-time threat detection, automated backup systems, encryption protocols, and 24/7 monitoring.",
+                    "features": [
+                        "Real-time threat detection and blocking",
+                        "AI-powered malware analysis",
+                        "Automated data backup and recovery",
+                        "End-to-end encryption",
+                        "Multi-device protection",
+                        "24/7 security monitoring",
+                        "Monthly security reports"
+                    ],
+                    "pricing": [
+                        {"id": "data-protection-monthly", "name": "Monthly Plan", "price": 199, "period": "month", "features": ["All protection features", "Up to 10 devices", "24/7 support"]}
+                    ],
+                    "image_url": "https://images.unsplash.com/photo-1698669993523-bcf101a925ef?w=800",
+                    "icon": "Shield",
+                    "created_at": datetime.now(timezone.utc).isoformat()
+                },
+                {
+                    "id": str(uuid.uuid4()),
+                    "title": "Cybersecurity Consultation",
+                    "slug": "cybersecurity-consultation",
+                    "short_description": "Expert analysis and strategic recommendations to fortify your digital infrastructure.",
+                    "full_description": "Our Cybersecurity Consultation service connects you with industry-leading security experts who analyze your current infrastructure, identify vulnerabilities, and provide actionable recommendations. Whether you need a quick assessment or a comprehensive security audit, our team delivers insights that protect your business from evolving cyber threats.",
+                    "features": [
+                        "Comprehensive vulnerability assessment",
+                        "Penetration testing",
+                        "Security architecture review",
+                        "Compliance gap analysis",
+                        "Risk assessment and mitigation strategies",
+                        "Custom security roadmap",
+                        "Executive summary and detailed reports"
+                    ],
+                    "pricing": [
+                        {"id": "consultation-session", "name": "Single Session", "price": 299, "period": "session", "features": ["2-hour consultation", "Preliminary assessment", "Action items report"]},
+                        {"id": "consultation-audit", "name": "Full Security Audit", "price": 499, "period": "one-time", "features": ["Complete infrastructure review", "Penetration testing", "Detailed report with recommendations"]}
+                    ],
+                    "image_url": "https://images.pexels.com/photos/8439094/pexels-photo-8439094.jpeg",
+                    "icon": "Search",
+                    "created_at": datetime.now(timezone.utc).isoformat()
+                },
+                {
+                    "id": str(uuid.uuid4()),
+                    "title": "Automated AI Solutions",
+                    "slug": "automated-ai-solutions",
+                    "short_description": "Custom AI automation to streamline your business operations and enhance productivity.",
+                    "full_description": "Transform your business with our Automated AI Solutions. We design and implement custom AI systems that automate repetitive tasks, analyze data patterns, and provide intelligent insights. From customer service chatbots to predictive analytics, our solutions help businesses operate more efficiently while reducing costs and human error.",
+                    "features": [
+                        "Custom AI model development",
+                        "Process automation",
+                        "Intelligent chatbots",
+                        "Predictive analytics",
+                        "Natural language processing",
+                        "Integration with existing systems",
+                        "Ongoing optimization and support"
+                    ],
+                    "pricing": [
+                        {"id": "ai-solutions-project", "name": "Per Project", "price": 499, "period": "one-time", "features": ["Custom AI solution", "Implementation support", "30-day warranty"]},
+                        {"id": "ai-solutions-monthly", "name": "Monthly Subscription", "price": 99, "period": "month", "features": ["Ongoing AI support", "Regular optimizations", "Priority support"]}
+                    ],
+                    "image_url": "https://images.pexels.com/photos/31587202/pexels-photo-31587202.jpeg",
+                    "icon": "Cpu",
+                    "created_at": datetime.now(timezone.utc).isoformat()
+                }
+            ]
+            await db.services.insert_many(default_services)
+            logger.info("Default services seeded successfully")
+        
+        # Check if admin exists, if not, seed admin
+        admin_exists = await db.users.find_one({"role": "admin"})
+        if not admin_exists:
+            logger.info("No admin found, seeding default admin...")
+            admin_id = str(uuid.uuid4())
+            admin_doc = {
+                "id": admin_id,
+                "email": "admin@guardianai.com",
+                "password": hash_password("admin123"),
+                "name": "Admin",
+                "role": "admin",
+                "created_at": datetime.now(timezone.utc).isoformat()
+            }
+            await db.users.insert_one(admin_doc)
+            logger.info("Default admin seeded successfully")
+        
+        logger.info("Guardian AI API started successfully")
+    except Exception as e:
+        logger.error(f"Startup error: {e}")
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
